@@ -19,3 +19,6 @@ bound <- floor((nrow(df)/4)*3)         #define % of training and test set
 df <- df[sample(nrow(df)), ]           #sample rows 
 df.train <- df[1:bound, ]              #get training set
 df.test <- df[(bound+1):nrow(df), ]    #get test set
+
+
+
