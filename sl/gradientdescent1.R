@@ -26,13 +26,16 @@ x.All
 #x ;gradient(x); alpha*gradient(x);  x - alpha*gradient(x); x = x - alpha*gradient(x)
 #x ;gradient(x); alpha*gradient(x);  x - alpha*gradient(x); x = x - alpha*gradient(x)
 #...
-
+# these value of x are stored in blank vector
 for(i in 1:iter){
   x = x - alpha*gradient(x)
   x.All[i] = x
-  print(x)
+  print(x) # print last value of x
 }
 head(x.All); x
 # print result and plot all xs for every iteration
 print(paste("The minimum of f(x) is ", x, sep = ""))
+#layout(matrix(c(1,2,3,4),2,2))
+layout(1,1)
 plot(x.All, type = "l")
+

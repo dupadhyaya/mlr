@@ -5,20 +5,25 @@
   
 set.seed(11)
 x <- matrix(rnorm(400), ncol = 4)
+x
 y <- rnorm(100)
+y
 m <- length(y)
+m
 X<-cbind(rep(1, 100), x)
+X
 theta<-rep(0,5)
-Second, set up the cost function for least square linear regression:
-  
-  compCost<-function(X, y, theta){
+theta
+#Second, set up the cost function for least square linear regression:
+length(y)  
+compCost<-function(X, y, theta){
     m <- length(y)
-    J <- sum((X%*%theta- y)^2)/(2*m)
+    J <- sum((X%*%theta - y)^2)/(2*m)
     return(J)
   }
-Next, set up the gradient descent function, running for iterations:
+#Next, set up the gradient descent function, running for iterations:
   
-  gradDescent<-function(X, y, theta, alpha, num_iters){
+gradDescent<-function(X, y, theta, alpha, num_iters){
     m <- length(y)
     J_hist <- rep(0, num_iters)
     for(i in 1:num_iters){
@@ -36,9 +41,9 @@ Next, set up the gradient descent function, running for iterations:
     results<-list(theta, J_hist)
     return(results)
   }
-Then, let’s set a training rate alpha and number of iterations to perform gradient descent:
+#Then, let’s set a training rate alpha and number of iterations to perform gradient descent:
   
-  alpha <- .1
+alpha <- .1
 num_iters <- 150
 results <- gradDescent(X, y, theta, alpha, num_iters)
 theta <- results[[1]]
@@ -50,6 +55,6 @@ print(theta)
 ## [3,]  0.10089729
 ## [4,] -0.11856147
 ## [5,] -0.20665900
-Finally let’s plot the cost history:
+#Finally let’s plot the cost history:
   
-  plot(1:num_iters, cost_hist, type = 'l')
+plot(1:num_iters, cost_hist, type = 'l')

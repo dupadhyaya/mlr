@@ -10,7 +10,10 @@ x <- data.frame(cbind(x_train,y_train))
 # Train the model using the training sets and check score
 linear <- lm(y_train ~ ., data = x)
 summary(linear)
+layout(matrix(c(1,2,3,4),2,2))
+plot(linear)
 head(x_test)
+
 #Predict Output
 #newdata = data.frame(waiting=80) # wrap the parameter
 #predict(eruption.lm, newdata)    # apply predict 

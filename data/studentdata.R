@@ -23,8 +23,9 @@ str(test1)
 nrow(train1);nrow(test1)
 # want to train the data on basis of age, class10, sem1 marks
 
-x_train = train1['age','class10','sem1']
-
+x_train = train1[,c('age','class10','sem1')]
+head(x_train)
 y_train = train1$btechmarks
-x_test = test['age','class10','sem1']
-x_train; y_train; x_test
+head(y_train)
+x_test = train1[,c('age','class10','sem1')]
+head(x_test)
